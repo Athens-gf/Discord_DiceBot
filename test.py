@@ -11,6 +11,6 @@ if __name__ == '__main__':
         except EOFError:
             break
 
-        res, is_dice = parse.parse(436702436368056320, 'Athens', s)
+        res, is_dice = parse.parse(12345, 'Athens', s)
         if res:
             print('\n'.join(res))
