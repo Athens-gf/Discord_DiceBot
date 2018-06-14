@@ -69,7 +69,7 @@ async def on_message(message):
                     voice_channel = message.author.voice_channel
                     if voice_channel:
                         voice = await client.join_voice_channel(voice_channel)
-                        player = voice.create_ffmpeg_player('2d.wav')
+                        player = voice.create_ffmpeg_player('dice.wav')
                         player.start()
                         while player.is_playing():
                             pass
@@ -85,7 +85,7 @@ async def on_message(message):
                     voice_channel = message.author.voice_channel
                     if voice_channel:
                         voice = await client.join_voice_channel(voice_channel)
-                        player = voice.create_ffmpeg_player('2d.wav')
+                        player = voice.create_ffmpeg_player('dice.wav')
                         player.start()
                         while player.is_playing():
                             pass
