@@ -2,7 +2,9 @@ import parse
 import discord
 import help
 
-BOT_TOKEN = ""
+btf = open('token.txt', 'r')
+BOT_TOKEN = btf.read().replace('\n', '').strip()
+btf.close()
 help_mes = help.help_mes
 client = discord.Client()
 
