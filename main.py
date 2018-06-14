@@ -58,6 +58,12 @@ async def on_message(message):
                         message.server.id, message.author.name, valcom):
                     await client.send_message(message.channel, '<@%s> \n```登録%sを削除しました．```' %
                                               (message.author.id, valcom))
+        elif content.lower().startswith('logout'):
+            if parse.is_one_access_server():
+                mes = parse.get_all_regist(message.server.id)
+                if mes:
+                    await client.send_message(message.channel, '<@%s> \n```%s```' % (message.author.id, mes))
+                await client.logout()
         elif content.lower().startswith('sc'):
             res, is_dice = parse.parse(
                 message.server.id, message.author.name, content[2:])
@@ -66,21 +72,22 @@ async def on_message(message):
                 await client.send_message(message.author, mes)
                 if is_dice:
                     await client.send_message(message.channel, '%sはダイスを振ったようだ…' % message.author.name)
-                    voice_channel = message.author.voice_channel
-                    if voice_channel:
-                        voice = await client.join_voice_channel(voice_channel)
-                        player = voice.create_ffmpeg_player('dice.wav')
-                        player.start()
-                        while player.is_playing():
-                            pass
-                        await voice.disconnect()
+#                    voice_channel = message.author.voice_channel
+#                    if voice_channel:
+#                        voice = await client.join_voice_channel(voice_channel)
+#                        player = voice.create_ffmpeg_player('dice.wav')
+#                        player.start()
+#                        while player.is_playing():
+#                            pass
+#                        await voice.disconnect()
         else:
-            res, is_dice = parse.parse(
+            res, _ = parse.parse(
                 message.server.id, message.author.name, content)
             if res:
                 mes = '<@%s> \n```%s```' % (
                     message.author.id, '\n'.join(res))
                 await client.send_message(message.channel, mes)
+'''                
                 if is_dice:
                     voice_channel = message.author.voice_channel
                     if voice_channel:
@@ -90,9 +97,11 @@ async def on_message(message):
                         while player.is_playing():
                             pass
                         await voice.disconnect()
-
+'''
 
 # サーバーから切断された時
+
+
 @client.event
 async def on_server_remove(server):
     print(parse.data)

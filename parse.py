@@ -691,7 +691,9 @@ def get_all_regist(serverID):
                         s += 'T[!%s] := %d\n' % (k, v)
             s += '\n'
         for name, val in data[serverID].items():
-            if name == ALL or name == SETD:
+            if name == ALL or name == SETD or name == PRE:
+                continue
+            if (VALUE not in val) and (COMMAND not in val) and (TURN not in val):
                 continue
             s += ' Name: %s\n' % name
             for t in (VALUE, COMMAND, TURN):
@@ -718,3 +720,7 @@ def get_d(serverID):
     if (serverID not in data)or(SETD not in data[serverID]):
         return False
     return data[serverID][SETD]
+
+
+def is_one_access_server():
+    return len(data.keys()) <= 1

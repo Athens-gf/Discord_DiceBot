@@ -5,23 +5,24 @@
 「マイアプリ」→「新しいアプリ」で登録．  
 「Bot」→「Botユーザーを作成」→「実行します」でBotを作成．  
 「トークン：クリックして表示」を押して出てくるBot用トークンを記録しておく．  
-「main.py」内の「BOT_TOKEN」文字列に先ほどのBot用トークンを記述．  
+「main.py」と同じ階層に「token.txt」を作成し，そのファイルに先ほどのBot用トークンを記述．  
 
 「Generate OAuth2 URL」→「COPY」でコピーしたURLを導入したいサーバーの管理者にアクセスしてもらい，BOTをサーバーに参加させる．  
 
 「main.py」を起動．  
 	●必要ライブラリ  
 	・diccord.py  
-	`python3 -m pip install -U discord.py`  
+	`python -m pip install -U discord.py`  
 	・PLY(字句解析/構文解析ライブラリ)  
 	`pip install ply`  
 	・numpy(学術計算ライブラリ)  
-	`pip install numpy`  
-	・PyNacl，libffi-dev，ffmpeg(音楽を鳴らすためのライブラリ)  
-	`pip3 install pynacl`  
-	Mac：`brew install libffi`，Ubuntu：`sudo apt install libffi-dev`  
+	`pip install numpy`  	
+[](
+	・PyNacl，libffi-dev，ffmpeg(音楽を鳴らすためのライブラリ)  \
+	`pip install pynacl`  \
+	Mac：`brew install libffi`，Ubuntu：`sudo apt install libffi-dev`  \
 	Mac：`brew install ffmpeg`，Ubuntu：`sudo apt install ffmpeg`  
-
+)
 ## コマンド一覧（詳しくは「!dhelp」で）
 !d コマンド         ：このコマンドから始まる発言をこのDiceBot用記法と認識する．  
                    ：改行を入れることで行ごとに別の処理ができる．  
@@ -40,6 +41,9 @@
 !ddel T[登録名]     ：登録名と一致するターンカウントを削除する．  
 !dallcommand       ：「!d」から始まらなくなくてもコマンドとして認識するように設定する．  
                    ：もう一度呼び出すと通常に戻す．  
+!dlogout		   ：接続されている（数値やコマンド等を記憶している）サーバーが1個だけならプログラムを終了する
 
-## 使用楽曲
+[](
+## 使用楽曲\
 [ダイス音・2（2D10），ニコニ・コモンズ](http://commons.nicovideo.jp/material/nc42340)  
+)
