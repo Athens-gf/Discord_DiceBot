@@ -17,12 +17,12 @@
 	`pip install ply`  
 	・numpy(学術計算ライブラリ)  
 	`pip install numpy`  	
-[](
-	・PyNacl，libffi-dev，ffmpeg(音楽を鳴らすためのライブラリ)  \
-	`pip install pynacl`  \
-	Mac：`brew install libffi`，Ubuntu：`sudo apt install libffi-dev`  \
+<!--
+	・PyNacl，libffi-dev，ffmpeg(音楽を鳴らすためのライブラリ)  
+	`pip install pynacl`  
+	Mac：`brew install libffi`，Ubuntu：`sudo apt install libffi-dev`  
 	Mac：`brew install ffmpeg`，Ubuntu：`sudo apt install ffmpeg`  
-)
+-->
 ## コマンド一覧（詳しくは「!dhelp」で）
 !d コマンド         ：このコマンドから始まる発言をこのDiceBot用記法と認識する．  
                    ：改行を入れることで行ごとに別の処理ができる．  
@@ -43,7 +43,7 @@
                    ：もう一度呼び出すと通常に戻す．  
 !dlogout		   ：接続されている（数値やコマンド等を記憶している）サーバーが1個だけならプログラムを終了する
 
-[](
-## 使用楽曲\
+<!--
+## 使用楽曲
 [ダイス音・2（2D10），ニコニ・コモンズ](http://commons.nicovideo.jp/material/nc42340)  
-)
+-->
