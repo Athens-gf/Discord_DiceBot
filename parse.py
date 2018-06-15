@@ -316,7 +316,6 @@ def p_expression_conditional_op(p):
         p[0] = p[3]
     else:
         p[0] = p[5]
-    mes_buff[OUT].append('三項演算子：%s' % p[1])
 
 
 # 文字列
@@ -464,7 +463,7 @@ def p_expression_coc(p):
         else:
             p[0] = dn.COC({'Base': p[2]})
     elif len(p) == 5:
-        if isinstance(p[2], dict)and isinstance(p[4], list) and len(p[4]) == 2:
+        if (isinstance(p[2], int) or isinstance(p[2], dict))and isinstance(p[4], list) and len(p[4]) == 2:
             dic = copy.deepcopy(p[2]) if isinstance(
                 p[2], dict) else{'Base': p[2]}
             p[0] = dn.COC(dic) <= 50 + 5 * (p[4][0] - p[4][1])

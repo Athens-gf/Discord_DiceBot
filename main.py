@@ -28,7 +28,7 @@ async def on_message(message):
         if not parse.get_d(message.server.id):
             content = message.content[2:]
         if content.lower().startswith('help'):
-            system = message.content[4:].strip()
+            system = content[4:].strip()
             if system == '':
                 system = 'Base'
             await client.send_message(message.channel, '```\n%s\n```' % help_mes[system])
@@ -62,7 +62,7 @@ async def on_message(message):
             if parse.is_one_access_server():
                 mes = parse.get_all_regist(message.server.id)
                 if mes:
-                    await client.send_message(message.channel, '<@%s> \n```%s```' % (message.author.id, mes))
+                    await client.send_message(message.channel, 'logout...\n```%s```' % mes)
                 await client.logout()
         elif content.lower().startswith('sc'):
             res, is_dice = parse.parse(
