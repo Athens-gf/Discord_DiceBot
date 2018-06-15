@@ -60,9 +60,10 @@ async def on_message(message):
                                               (message.author.id, valcom))
         elif content.lower().startswith('logout'):
             if parse.is_one_access_server():
+                await client.send_message(message.channel, 'logout...')
                 mes = parse.get_all_regist(message.server.id)
                 if mes:
-                    await client.send_message(message.channel, 'logout...\n```%s```' % mes)
+                    await client.send_message(message.channel, '```%s```' % mes)
                 await client.logout()
         elif content.lower().startswith('sc'):
             res, is_dice = parse.parse(
@@ -110,3 +111,4 @@ async def on_server_remove(server):
     print(parse.data)
 
 client.run(BOT_TOKEN)
+print('logout...')
