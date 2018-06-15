@@ -692,7 +692,9 @@ def get_all_regist(serverID):
         for name, val in data[serverID].items():
             if name == ALL or name == SETD or name == PRE:
                 continue
-            if (VALUE not in val) and (COMMAND not in val) and (TURN not in val):
+            if (VALUE not in val or len(val[VALUE].keys()) == 0) and\
+             (COMMAND not in val or len(val[COMMAND].keys()) == 0) and\
+                    (TURN not in val or len(val[TURN].keys()) == 0):
                 continue
             s += ' Name: %s\n' % name
             for t in (VALUE, COMMAND, TURN):
