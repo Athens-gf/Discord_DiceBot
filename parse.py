@@ -499,7 +499,7 @@ parser = yacc.yacc()
 
 # コマンド登録正規表現
 re_regist_command = re.compile(
-    r'^\s*\{\s*(?:(?P<all>!)|(?:(?P<name>[0-9a-zA-Z一-龥ぁ-んァ-ン_]+)\s*/))?\s*(?P<key>[0-9a-zA-Z一-龥ぁ-んァ-ン_]+)\s*\}\s*:=\s*(?P<com>.+)\s*')
+    r'^\s*\{\s*(?:(?P<all>!)|(?:(?P<name>.+)\s*/))?\s*(?P<key>[0-9a-zA-Z一-龥ぁ-んァ-ンー〜_]+)\s*\}\s*:=\s*(?P<com>.+)\s*')
 
 
 def regist_command(line):
@@ -525,9 +525,9 @@ def regist_command(line):
 
 # コマンド正規表現
 re_split_command = re.compile(
-    r'(\{\s*(?:[0-9a-zA-Z一-龥ぁ-んァ-ン_]+\s*/)?\s*[0-9a-zA-Z一-龥ぁ-んァ-ン_]+\s*\})')
+    r'(\{\s*(?:.+\s*/)?\s*[0-9a-zA-Z一-龥ぁ-んァ-ンー〜_]+\s*\})')
 re_command = re.compile(
-    r'^\{\s*(?:(?P<all>!)|(?:(?P<name>[0-9a-zA-Z一-龥ぁ-んァ-ン_]+)\s*/))?\s*(?P<key>[0-9a-zA-Z一-龥ぁ-んァ-ン_]+)\s*\}')
+    r'^\{\s*(?:(?P<all>!)|(?:(?P<name>.+)\s*/))?\s*(?P<key>[0-9a-zA-Z一-龥ぁ-んァ-ンー〜_]+)\s*\}')
 
 
 def replace_command(line):
@@ -693,7 +693,7 @@ def get_all_regist(serverID):
             if name == ALL or name == SETD or name == PRE:
                 continue
             if (VALUE not in val or len(val[VALUE].keys()) == 0) and\
-             (COMMAND not in val or len(val[COMMAND].keys()) == 0) and\
+                (COMMAND not in val or len(val[COMMAND].keys()) == 0) and\
                     (TURN not in val or len(val[TURN].keys()) == 0):
                 continue
             s += ' Name: %s\n' % name

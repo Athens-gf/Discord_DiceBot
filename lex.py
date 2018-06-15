@@ -118,7 +118,7 @@ def t_STRING(t):
 
 # データ登録識別子
 def t_IDENT(t):
-    r"""\[(!|([0-9a-zA-Z一-龥ぁ-んァ-ン_]+/))?[0-9a-zA-Z一-龥ぁ-んァ-ン_]+\]"""
+    r"""\[(!|(.+/))?[0-9a-zA-Z一-龥ぁ-んァ-ンー〜_]+\]"""
     t.value = t.value[1:-1].split('/')
     if len(t.value) == 1:
         if t.value[0].startswith('!'):
